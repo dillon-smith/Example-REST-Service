@@ -2,19 +2,25 @@
 
 This project is intended to be a very simple REST service showing examples of the following.
 
+* A typical Spring Boot architecture with a `RestController` that delegates to a `Service` and other Spring Beans.
 * Integrating and consolidating a pair of external API requests.
 * Using Caffeine to cache the consolidated data.
 * Response DTOs to insulate consumers from downstream contract and response changes.
 * Separation of concerns between beans/components to simplify testing and feature additions.
-* A typical Spring Boot architecture with a `RestController` and service layer.
 
 # Running the Application
 
-This service can be started locally by running the 'bootRun' Gradle task.
+Requirements:
+* Minimum JDK Version 21: https://openjdk.org/projects/jdk/21/
+* Gradle 8
 
-```
-./gradlew bootRun
-```
+If this works you are in business:
+
+    $ git clone git://github.com/dillon-smith/Example-REST-Service.git
+    $ cd Example-REST-Service
+    $ ./gradlew bootRun
+
+> Note: When running via Gradle this application runs under port 8080    
 
 The service implements an OpenAPI specification that is viewable at the following URIs.
 
@@ -84,5 +90,5 @@ The service should respond with a JSON document that resembles the following.
 2) GitHubClient
     1) Add retry implementation
     2) Switch from `RestTemplate` to `RestClient` for a fluent API.
-3) Generate DTOs from OpenAPI specification
-4) Generate GitHub client model's from GitHub's API specification
+3) Generate base controller and DTOs from OpenAPI specification.
+4) Generate GitHub client models from GitHub's API specification.
